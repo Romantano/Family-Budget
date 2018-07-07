@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+   .block {
+    width: 1021px;
+    background: grey;
+    margin: auto;
+    padding: 20px;
+    padding-right: 20px;
+    border: solid 1px black;
+   }
+    </style>
+</head>
+<body>
+<div class="block">
+<h1>Расчет бюджета на месяц</h1>
+<hr>
+<h2><p align="right">Ваш баланс: {{ total }}</p></h2>
+<hr>
+<form method = "post">
+    {% csrf_token %}
+    {{ form.sum }}
+    {{ form.name }}
+    {{ form.category }}
+    {{ form.change }}
+    <input type="submit">
+</form>
+    {% if table %}
+        <table>
+        {% for place in table %}
+            <tr>
+                <td>{{ place.sum }}</td>
+                <td>{{ place.name }}</td>
+                <td>{{ place.category }}</td>
+                <td>{{ place.change }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+</div>
+</body>
+</html>

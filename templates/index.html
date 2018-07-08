@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="block">
-<h1>Планирование бюджета на месяц</h1>
+<h1>Планирование бюджета</h1>
 <h2><p align="right">Ваш баланс: {{ total }}</p></h2>
 <hr>
 <form method = "post">
@@ -43,6 +43,7 @@
                 <td>{{ place.name }}</td>
                 <td>{{ place.category }}</td>
                 <td>{{ place.change }}</td>
+                <td> </td>
             </tr>
         {% endfor %}
         {% endif %}

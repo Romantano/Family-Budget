@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 
+from django.db.models import DecimalField
+
 
 class Period(models.Model):
     name = models.CharField("Название:", max_length=30, null=True, help_text="Например: название месяца, номер  и т.п.")
@@ -27,8 +29,8 @@ class ChangeBalance(models.Model):
 
  #   period = models.ForeignKey(Period)
 
- #   def __str__(self):
-  #      return self.get_change_display() + ': ' + str(self.sum)
+    def __str__(self):
+        return str(self.sum)
 
 
 

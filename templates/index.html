@@ -16,21 +16,28 @@
 </head>
 <body>
 <div class="block">
-<h1>Расчет бюджета на месяц</h1>
-<hr>
+<h1>Планирование бюджета на месяц</h1>
 <h2><p align="right">Ваш баланс: {{ total }}</p></h2>
 <hr>
 <form method = "post">
     {% csrf_token %}
-    {{ form.sum }}
-    {{ form.name }}
-    {{ form.category }}
-    {{ form.change }}
-    <input type="submit">
-</form>
-    {% if table %}
-        <table>
-        {% for place in table %}
+    <table>
+        <tr>
+            <td width="220">Сумма:</td>
+            <td width="220">Описание:</td>
+            <td width="220">Категория:</td>
+            <td width="120">Изменение:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ form.sum }}</td>
+            <td>{{ form.name }}</td>
+            <td>{{ form.category }}</td>
+            <td>{{ form.change }}</td>
+            <td><input type="submit" value="Записать"></td>
+        </tr>
+        {% if table %}
+        {% for place in table reversed %}
             <tr>
                 <td>{{ place.sum }}</td>
                 <td>{{ place.name }}</td>
@@ -38,8 +45,9 @@
                 <td>{{ place.change }}</td>
             </tr>
         {% endfor %}
-        </table>
-    {% endif %}
+        {% endif %}
+    </table>
+</form>
 </div>
 </body>
 </html>

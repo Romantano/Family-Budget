@@ -17,13 +17,13 @@ class CurrentBalance(models.Model):
 
 class ChangeBalance(models.Model):
     sum = models.DecimalField("Сумма:", decimal_places=2, max_digits=10)
-    name = models.CharField("Название:", max_length=30, null=True)
-    category = models.CharField("Категория:", max_length=30, null=True)
+    name = models.CharField("Название:", max_length=50, null=True)
+    category = models.CharField("Категория:", max_length=50, null=True)
     choises_balans = (
-        ("Spending", "Расход"),
-        ("Income", "Поступление")
+        ("Расход", "Расход"),
+        ("Поступление", "Поступление")
     )
-    change = models.CharField(max_length=8, choices=choises_balans, default="Income")
+    change = models.CharField(max_length=12, choices=choises_balans, default="Расход")
 
  #   period = models.ForeignKey(Period)
 
